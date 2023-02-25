@@ -17,7 +17,7 @@ Elone Hoo
 
 <div abs-br mx-10 my-12 flex="~ col" text-sm text-right>
   <div>Work Talks</div>
-  <div text-sm opacity-50>Feb. 12th 2023</div>
+  <div text-sm opacity-50>Mar. 4th 2023</div>
 </div>
 
 ---
