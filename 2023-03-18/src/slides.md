@@ -17,7 +17,7 @@ Elone Hoo
 
 <div abs-br mx-10 my-12 flex="~ col" text-sm text-right>
   <div>Work Talks</div>
-  <div text-sm opacity-50>Mar. 4th 2023</div>
+  <div text-sm opacity-50>Mar. 18th 2023</div>
 </div>
 
 ---
@@ -30,11 +30,13 @@ style: 'padding-left: 8rem;'
 # Elone Hoo
 
 <div class="leading-8 opacity-80">
-PiniaOrm, VueHooksForm, Pistachio, LogonTracer 等开源项目作者<br>
+JumpIDE, VueHooksForm, Pistachio, LogonTracer 等开源项目作者<br>
 任职于 Beneway<br>
 </div>
 
-<div my-10 w-min grid="~ cols-[40px_1fr] gap-y4" items-center justify-center>
+<div my-10 w-max grid="~ cols-[40px_1fr] gap-y4" items-center justify-center>
+  <div i-game-icons-soap-experiment op50 ma text-xl/>
+  <div><a href="https://github.com/wip-elonehoo" target="_blank">WIP of Elone Hoo</a></div>
   <div i-ri-github-line op50 ma text-xl/>
   <div><a href="https://github.com/elonehoo" target="_blank">elonehoo</a></div>
   <div i-ri-twitter-line op50 ma text-xl/>

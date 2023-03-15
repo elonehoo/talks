@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "slidev",
     "build": "slidev build",
-    "export": "slidev export --per-slide --output ../2023-03-04-vue-developer-cn.pdf",
+    "export": "slidev export --per-slide --output ../2023-03-18-vue-developer-cn.pdf",
     "play": "slidev --remote --tunnel"
   }
 }
