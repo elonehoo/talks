@@ -2,6 +2,8 @@
   "private": true,
   "packageManager": "pnpm@7.26.3",
   "scripts": {
+    "2023-10-06": "pnpm -C 2023-10-06/src run dev",
+    "2023-03-18": "pnpm -C 2023-03-18/src run dev",
     "build": "rimraf dist && pnpm -r run build",
     "lint": "eslint ."
   },

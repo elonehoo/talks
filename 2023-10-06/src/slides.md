@@ -165,25 +165,25 @@ growX: 0
 growY: 90
 ---
 
-# 生态
-
-<iframe v-click src="https://cn.vitejs.dev/plugins/" 
-  onload="this.style.visibility = 'visible';" 
-  scale-50 origin-top-right absolute right-0 top-0 bottom-0 w="140%" h="200%" 
-  style="mix-blend-mode: lighten;filter:contrast(1.15);visibility:hidden;"
-/>
+# 架构图
 
 
 <v-clicks>
-
-- 模块
-
-- 轻松整合
+  
+<img src="/Architecture.svg">  
 
 </v-clicks>
 
 <!--
-在生态系统方面，Vue 有一个庞大的社区来围绕它构建模块。 在我们的网站上看看这些，我们有数百个高质量的模块供您选择，这里的所有模块都可用于 Vue 3。有了插件，我们可以毫不费力地集成想要的功能。 他们正在为我们处理细节和最佳实践。
+我们将最核心的部分组绘制成了图，可以直观的用图画的形式查看对于该插件系统的理解和思想。
+
+我们可以先设置表格，再由客户进行初步的设置表头。我们将表头的每一个值进行单独的存储，同时可以增加更多的关联项。
+
+这样我们可以发散自己的思维，增加更多的功能，例如
+- 我们可以增加图表的关联，
+- 增加图表的展示方式，
+- 增加图表的展示逻辑，
+- 增加图表的展示类型。
 -->
 
 ---
@@ -192,29 +192,24 @@ growY: 50
 layout: two-cols
 ---
 
-# Vue中的 <span v-click> - 响应式</span>
-
-<template v-slot:right>
-
-![](/excel-reactive.png)
-
-</template>
-
+# 项目中的 <span v-click> - 业务流程</span>
 
 <v-clicks>
 
-- 自动收集依赖 & 更新
+- 在桐庐县中出现的问题
 
-- Vue 3 中新的 API
-  - ref
-  - reactive
-  - effect
-  - computed
+  - 流程的不准确性，体现在用户无法对于自己的业务进行准备的表达，和使用者对于流程的意见。
+  
+  - 那么流程本身也应该是不同区域不同流程，所以这里我们需要在下次该类型的项目中对于流程也如同上述的插件进行修改。
 
 </v-clicks>
 
 <!--
-那么什么是响应式呢？提到这个就得祭出这张非常经典的 GIF。在一个 Excel 表格里面，我们会以公式的形式去定义一个一个单元格应该去做怎么样的一个运算。那么大家可以看到，在我设置好了 `A3` 这个格子的公式之后，我去更新 `A1` 的数值时， `A3` 就会自动更新，而我不需要再去做任何的操作。这就是响应是能够给我们带来的一个非常好的帮助，依赖的自动收集跟更新。
+在这个项目中，我们出现了一些问题。
+
+我们很难理解客户的业务流程，他们也无法准确的描述出自己的业务流程，导致我们对于整体的业务流程是匮乏认知和匮乏理解的。
+
+但本身该项目的业务流程是定制的需求。
 -->
 
 ---
@@ -224,96 +219,20 @@ growFollow: false
 layout: two-cols
 ---
 
-# 响应式 <span v-click> - Reactive</span>
+# 项目的复制<span v-click>的可能性</span>
 
-<template v-slot:right>
-
-```ts
-const reactive = target => new Proxy(target, {
-  get(target, prop, receiver) {
-    track(target, prop)
-    return Reflect.get(...arguments) // get original data
-  },
-  set(target, key, value, receiver) {
-    trigger(target, key)
-    return Reflect.set(...arguments)
-  }
-})
-
-const obj = reactive({
-  hello: 'world'
-})
-
-console.log(obj.hello) // `track()` get called
-obj.hello = 'vue' // `trigger()` get called
-```
-
-</template>
+<p v-click>如果将项目按照上述的逻辑进行拆分，</p>
 
 <v-clicks>
 
-- 使用 Proxy 实现
+- 那么只需要满足数据汇总和展示的需求，那么就可以完成一个项目的复制。
 
-- track，trigger 进行响应式追踪
+- 或者将数据系统剥离出来，成为插件系统。
 
 </v-clicks>
 
 <!--
-在 Vue 3 里面，我们对整个响应式系统做了一个重新的设计，同时暴露出了这几个新的API，`ref` `reactive` `computed` `effect`。我们把原本 Vue 2 `Object.defineProperty` 的实现改成了使用 `Proxy` 的实现方式。而 `Proxy` 可以给我们提供对属性更新监控的更大的灵活性。
-
-我们可以通过 `get` 和 `set` 这两个 `handler` 去追踪每一个属性的访问和修改，在这个例子中我们在 `get` 里注入了 `track` 这个函数，在 `set` `里注入了trigger` 这个函数。那么在对 `reactive` 这个对象的 `hello` 属性进行访问的时候 `track` 就会被执行，在对 `obj.hello` `进行赋值的时候，trigger` 就会被执行。通过 `track` 和 `trigger` 我们就可以进行一些响应式的追踪。
--->
-
----
-growX: 0
-growY: -30
-growFollow: false
-layout: two-cols
----
-
-# 响应式 <span v-click> - Effect</span>
-
-<template v-slot:right>
-
-```ts
-const targetMap = new WeakMap()
-
-export const track = (target, key) => {
-  if (tacking && activeEffect)
-    targetMap.get(target).key(key).push(activeEffect)
-}
-
-export const trigger = (target, key) => {
-  targetMap.get(target).key(key).forEach(effect => effect())
-}
-
-export const effect = (fn) => {
-  const effect = function () { fn() }
-  enableTracking()
-  activeEffect = effect
-  fn()
-  resetTracking()
-  activeEffect = undefined
-}
-```
-
-</template>
-
-<v-clicks>
-
-- track 追踪调用它的函数
-
-- trigger 出发绑定的更新
-
-- effect 调用函数并且触发收集依赖
-
-</v-clicks>
-
-<!--
-`effect` 是在 Vue 3 里面新引入的一个API，它的作用就是去结合 `track` 和 `trigger` 这两个功能，`track` 的作用是追踪调用他的函数，`trigger` 是去触发绑定的依赖更新。
-
-在 `effect` 里面我们会接受一个函数作为参数，在执行这个函数之前的我们会开启 tracking，然后把当前的函数设置在一个全局变量 `activeEffect`，然后再去执行这个函数。那么在这个函数的调用时间里面我们有任何的 reactive 的调用就会触发 `track` 这个函数。`track` 的主要功能就是说我们把当前的 `activeEffect` 绑定到所触发它的这个属性调用上。然后在数据更新的时候，我们再去找到这个依赖上面所绑定的所有 `effect` 把他们一一调用。这样就完成了一个最基本的响应式的功能。
-
+如果我们将插件系统剥离出来，那么只要其他项目中有对于数据汇总和展示的需求，这个插件就派上了用场，因为业务流程过于定制化了，大概率是定制需求，所以只需要在后续的项目中满足其中一条就可以大概率实现复制的想法。
 -->
 
 ---
@@ -325,46 +244,7 @@ growY: 0
 # 更进一步
 
 <!--
-因此，通过 Vue3 的上下文，让我们对于代码管理向前迈一步
--->
-
----
-layout: 'center'
-class: 'text-center'
-growX: 50
-growY: 10
----
-
-<div v-click transition-all duration-500 :class="$slidev.nav.clicks === 0 ? 'op0' : $slidev.nav.clicks > 1 ? 'op50 text-2xl' : 'translate-y-10 text-4xl'">介绍</div>
-
-<div class="nuxt-devtools-logo" v-click>
-  <Git h-20/>
-</div>
-
----
-
-<h1><Git h-15/></h1>
-
-<div text-2xl>
-<v-clicks>
-
-- 多分支管理
-
-- 多版本控制
-
-- 最佳的 diff 展示
-
-</v-clicks>
-</div>
-
-<!--
-众所周知 Git 是一个开源的现代版本控制系统。
-
-多分支管理是 Git 一个非常重要的特点，因为多分支可以保证主分支不会产生任何的问题，而工作分支确定无误，就可以加入主分支。
-
-Git 天然的支持多个版本，如果当前版本出现问题，我们可以方便的回滚到上一个版本。
-
-在 Git 中我们可以清晰的看到每个提交之间所产生的差异。
+那么接下来，将会演示一下具体页面，展示这个插件架构目前的成果
 -->
 
 ---
@@ -388,27 +268,8 @@ scale: 0.5
 growFollow: false
 ---
 
-<a href="https://github.com/benewy/tl-supervise" target="	
+<a href="https://localhost:8001/#/login?redirect=/dashboard" target="	
 _blank">查看 Demo</a>
-
-<!--
-所以，这是一个使用 Git 孵化的项目，在这里我们可以看到我们是如何处理分支和看到所有的版本，以及我们在这个项目中的diff。
-
-首先我们点开 tag 可以看到所对应的版本，和每一个版本之间的功能差异。
-
-在点开 Pull Request 可以看到我们是如何处理多分支之间的合并。
-
-随便点开一个 PR，打开  Files changed 可以看到里面的文件差异，这个就是我们所说的 diff
--->
-
----
-layout: center
-class: text-center
-growX: 50
-growY: 0
----
-
-# 这就是我们在这个项目中是如何使用 Git 的
 
 ---
 layout: intro
