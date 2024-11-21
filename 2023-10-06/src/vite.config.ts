@@ -1,14 +1,7 @@
 import { defineConfig } from 'vite'
-import Inspect from 'vite-plugin-inspect'
-import '@slidev/cli'
+import baseConfig from '../../vite.config'
+
 
 export default defineConfig({
-  plugins: [
-    Inspect(),
-  ],
-  slidev: {
-    components: {
-      dts: false,
-    },
-  },
+  ...baseConfig,
 })

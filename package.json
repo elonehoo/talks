@@ -1,24 +1,44 @@
 {
+  "type": "module",
   "private": true,
-  "packageManager": "pnpm@7.26.3",
   "scripts": {
-    "2023-10-06": "pnpm -C 2023-10-06/src run dev",
-    "2023-03-18": "pnpm -C 2023-03-18/src run dev",
     "build": "rimraf dist && pnpm -r run build",
-    "lint": "eslint ."
+    "dev": "esno scripts/picker.ts dev --open",
+    "typecheck": "vue-tsc --noEmit",
+    "lint": "eslint .",
+    "prepare": "git submodule update --init --recursive"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.36.0",
-    "@iconify/json": "^2.2.35",
-    "@slidev/cli": "^0.40.3",
-    "@slidev/theme-default": "^0.21.2",
-    "eslint": "^8.36.0",
-    "playwright-chromium": "^1.31.2",
-    "pnpm": "^7.29.1",
-    "rimraf": "^4.4.0",
-    "typescript": "^4.9.5"
-  },
-  "eslintConfig": {
-    "extends": "@antfu"
+    "@antfu/eslint-config": "catalog:",
+    "@eslint/config-inspector": "catalog:",
+    "@iconify/collections": "catalog:",
+    "@iconify/json": "catalog:",
+    "@slidev/cli": "catalog:",
+    "@slidev/client": "catalog:",
+    "@slidev/theme-default": "catalog:",
+    "@types/node": "catalog:",
+    "@types/prompts": "catalog:",
+    "@types/seedrandom": "catalog:",
+    "chroma-js": "catalog:",
+    "eslint": "catalog:",
+    "eslint-plugin-format": "catalog:",
+    "esno": "catalog:",
+    "execa": "catalog:",
+    "fast-glob": "catalog:",
+    "markdown-it-magic-link": "catalog:",
+    "playwright-chromium": "catalog:",
+    "pnpm": "catalog:",
+    "prettier-plugin-slidev": "catalog:",
+    "prompts": "catalog:",
+    "rimraf": "catalog:",
+    "seedrandom": "catalog:",
+    "slidev-addon-graph": "catalog:",
+    "taze": "catalog:",
+    "typescript": "catalog:",
+    "unocss": "catalog:",
+    "vis-data": "catalog:",
+    "vis-network": "catalog:",
+    "vue-router": "catalog:",
+    "vue-tsc": "catalog:"
   }
 }
