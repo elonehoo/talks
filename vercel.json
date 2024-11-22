@@ -1,15 +1,13 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/node",
-      "config": {
-        "installCommand": "pnpm install",
-        "buildCommand": "pnpm run build"
-      }
+  "build": {
+    "publish": "dist",
+    "command": "pnpm run build",
+    "environment": {
+      "NODE_VERSION": "20",
+      "PLAYWRIGHT_BROWSERS_PATH": "0"
     }
-  ],
+  },
   "routes": [
     {
       "src": "/2023/vue-devtools/(.*)",
