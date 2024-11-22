@@ -1,35 +1,25 @@
 {
-  "version": 2,
-  "build": {
-    "publish": "dist",
-    "command": "pnpm run build",
-    "environment": {
-      "NODE_VERSION": "20",
-      "PLAYWRIGHT_BROWSERS_PATH": "0"
+  "buildCommand": "pnpm run build",
+  "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/2023/vue-devtools/(.*)",
+      "destination": "/2023/vue-devtools/index.html",
+      "statusCode": 200
+    },
+    {
+      "source": "/2023/project-copy/(.*)",
+      "destination": "/2023/project-copy/index.html",
+      "statusCode": 200
+    },
+    {
+      "source": "/2024/build-tauri/(.*)",
+      "destination": "/2024/build-tauri/index.html",
+      "statusCode": 200
+    },
+    {
+      "source": "/",
+      "destination": "https://elonehoo.me/talks"
     }
-  },
-  "routes": [
-    {
-      "src": "/2023/vue-devtools/(.*)",
-      "dest": "/2023/vue-devtools/index.html"
-    },
-    {
-      "src": "/2023/project-copy/(.*)",
-      "dest": "/2023/project-copy/index.html"
-    },
-    {
-      "src": "/2024/build-tauri/(.*)",
-      "dest": "/2024/build-tauri/index.html"
-    },
-    {
-      "src": "/",
-      "status": 302,
-      "headers": {
-        "Location": "https://elonehoo.me/talks"
-      }
-    }
-  ],
-  "env": {
-    "NODE_VERSION": "20"
-  }
+  ]
 }
