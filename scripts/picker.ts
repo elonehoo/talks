@@ -14,20 +14,23 @@ async function startPicker(args: string[]) {
   const result = args.includes('-y')
     ? { folder: folders[0] }
     : await prompts([
-      {
-        type: 'select',
-        name: 'folder',
-        message: 'Pick a folder',
-        choices: folders.map(folder => ({ title: folder, value: folder })),
-      },
-    ])
+        {
+          type: 'select',
+          name: 'folder',
+          message: 'Pick a folder',
+          choices: folders.map(folder => ({ title: folder, value: folder })),
+        },
+      ])
 
   args = args.filter(arg => arg !== '-y')
 
   if (result.folder) {
-    if (args[0] === 'dev')
-      execa('code', [fileURLToPath(new URL(`../${result.folder}/src/slides.md`, import.meta.url))])
-    await execa('pnpm', ['run', ...args], {
+    if (args[0] === 'dev') {
+      await execa('code', [fileURLToPath(new URL(`../${result.folder}/src/slides.md`, import.meta.url))], { reject: false })
+        .catch(() => {})
+    }
+    const [script, ...scriptArgs] = args
+    await execa('pnpm', ['--config.verify-deps-before-run=false', 'run', script, ...scriptArgs], {
       cwd: new URL(`../${result.folder}/src`, import.meta.url),
       stdio: 'inherit',
     })

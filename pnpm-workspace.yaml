@@ -1,8 +1,10 @@
+shellEmulator: true
+
+trustPolicy: no-downgrade
+
 packages:
   - '*/src'
 allowBuilds:
-  '[': true
-  ']': true
   esbuild: true
   playwright-chromium: true
   vue-demi: true
@@ -36,6 +38,5 @@ catalog:
   unocss: ^66.6.8
   vis-data: ^8.0.4
   vis-network: ^10.0.3
-  vis-timeline: ^7.7.3
   vue-router: ^5.0.6
   vue-tsc: ^3.2.8

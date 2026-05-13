@@ -245,16 +245,18 @@ layout: two-cols
 <template v-slot:right>
 
 ```ts
-const reactive = target => new Proxy(target, {
-  get(target, prop, receiver) {
-    track(target, prop)
-    return Reflect.get(...arguments) // get original data
-  },
-  set(target, key, value, receiver) {
-    trigger(target, key)
-    return Reflect.set(...arguments)
-  }
-})
+function reactive(target) {
+  return new Proxy(target, {
+    get(target, prop, receiver) {
+      track(target, prop)
+      return Reflect.get(...arguments) // get original data
+    },
+    set(target, key, value, receiver) {
+      trigger(target, key)
+      return Reflect.set(...arguments)
+    }
+  })
+}
 
 const obj = reactive({
   hello: 'world'
@@ -294,16 +296,16 @@ layout: two-cols
 ```ts
 const targetMap = new WeakMap()
 
-export const track = (target, key) => {
+export function track(target, key) {
   if (tacking && activeEffect)
     targetMap.get(target).key(key).push(activeEffect)
 }
 
-export const trigger = (target, key) => {
+export function trigger(target, key) {
   targetMap.get(target).key(key).forEach(effect => effect())
 }
 
-export const effect = (fn) => {
+export function effect(fn) {
   const effect = function () { fn() }
   enableTracking()
   activeEffect = effect
