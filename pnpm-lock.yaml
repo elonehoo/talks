@@ -204,6 +204,8 @@ importers:
 
   2024-11-22/src: {}
 
+  2026-05-12/src: {}
+
 packages:
 
   '@antfu/eslint-config@9.0.0':

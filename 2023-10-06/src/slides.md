@@ -170,7 +170,7 @@ growY: 90
 
 <v-clicks>
   
-<img src="/Architecture.svg">  
+<img src="./public/Architecture.svg">  
 
 </v-clicks>
 

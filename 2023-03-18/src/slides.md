@@ -79,19 +79,19 @@ growY: 0
 <v-clicks>
 
 <div flex="~ col" items-center>
-<img w-20 mb6 src="/vite.svg">
+<img w-20 mb6 src="./public/vite.svg">
 <div text-2xl>Vite</div>
 <div text-base op50>网页中的 HMR</div>
 </div>
 
 <div flex="~ col" items-center>
-<img w-20 mb6 src="/vite-node.svg">
+<img w-20 mb6 src="./public/vite-node.svg">
 <div text-2xl>vite-node</div>
 <div text-base op50>Node 中的 HRM</div>
 </div>
 
 <div flex="~ col" items-center>
-<img w-20 mb6 src="/spring-devtool.svg">
+<img w-20 mb6 src="./public/spring-devtool.svg">
 <div text-2xl>Spring DevTool</div>
 <div text-base op50>用于后端 API 重新加载</div>
 </div>
@@ -212,7 +212,7 @@ layout: two-cols
 
 <template v-slot:right>
 
-![](/excel-reactive.png)
+![](./public/excel-reactive.png)
 
 </template>
 
