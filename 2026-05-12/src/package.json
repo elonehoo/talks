@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "slidev",
+    "build": "slidev build --base /2026/agent-daily-work/ --out ../../dist/2026/agent-daily-work",
+    "export": "slidev export --per-slide --output ../2026-05-12-agent-daily-work.pdf"
+  }
+}
