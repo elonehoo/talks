@@ -40,5 +40,6 @@ catalog:
   unocss: ^66.6.8
   vis-data: ^8.0.4
   vis-network: ^10.0.3
+  vite: ^8.0.12
   vue-router: ^5.0.6
   vue-tsc: ^3.2.8

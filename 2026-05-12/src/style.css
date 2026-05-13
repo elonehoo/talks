@@ -1,5 +1,5 @@
 :root {
-  --talk-theme-color: #AACCFF;
+  --talk-theme-color: #aaccff;
   --talk-theme-color-soft: rgb(170 204 255 / 16%);
 }
 
@@ -12,8 +12,7 @@ h6 {
 .dark #slide-content {
   background:
     radial-gradient(circle at 20% 15%, var(--talk-theme-color-soft), transparent 28%),
-    radial-gradient(circle at 82% 70%, rgb(170 204 255 / 10%), transparent 24%),
-    #05070d !important;
+    radial-gradient(circle at 82% 70%, rgb(170 204 255 / 10%), transparent 24%), #05070d !important;
 }
 
 .slidev-vclick-target {

@@ -6,6 +6,7 @@
     "dev": "esno scripts/picker.ts dev --open",
     "typecheck": "vue-tsc --noEmit",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "prepare": "git submodule update --init --recursive"
   },
   "devDependencies": {
@@ -38,6 +39,7 @@
     "unocss": "catalog:",
     "vis-data": "catalog:",
     "vis-network": "catalog:",
+    "vite": "catalog:",
     "vue-router": "catalog:",
     "vue-tsc": "catalog:"
   }
