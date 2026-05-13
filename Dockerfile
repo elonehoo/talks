@@ -13,7 +13,7 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 
 COPY . .
 
-RUN git init && git add . && git commit -m "init"
+RUN git init && git add . && git commit -m "init" --allow-empty
 
 RUN pnpm install --force
 
