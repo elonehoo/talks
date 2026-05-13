@@ -639,3 +639,18 @@ glow: bottom
 
 希望大家从今天开始，把御小龙用起来，让它真正帮助你的日常工作。谢谢大家！
 -->
+
+---
+layout: intro
+class: pb-5
+growX: 50
+growY: 120
+---
+
+<div class="flex items-center justify-center gap-12 h-full">
+  <div class="text-center">
+    <h1>谢谢大家!</h1>
+    <div class="op70">PPT 在 <a href="https://elonehoo.me/talks">https://elonehoo.me/talks</a></div>
+  </div>
+  <img src="./qrcode.png" class="h-84 w-auto object-contain">
+</div>
