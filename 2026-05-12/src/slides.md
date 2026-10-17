@@ -652,5 +652,5 @@ growY: 120
     <h1>谢谢大家!</h1>
     <div class="op70">PPT 在 <a href="https://elonehoo.me/talks">https://elonehoo.me/talks</a></div>
   </div>
-  <img src="./qrcode.png" class="h-84 w-auto object-contain">
+  <img :src="'/2026/agent-daily-work/qrcode.png'" class="h-84 w-auto object-contain">
 </div>
