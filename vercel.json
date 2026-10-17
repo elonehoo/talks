@@ -1,25 +1,31 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "pnpm run build",
   "outputDirectory": "dist",
+  "installCommand": "PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 pnpm install --frozen-lockfile",
   "redirects": [
     {
-      "source": "/2023/vue-devtools/(.*)",
-      "destination": "/2023/vue-devtools/index.html",
-      "statusCode": 200
-    },
-    {
-      "source": "/2023/project-copy/(.*)",
-      "destination": "/2023/project-copy/index.html",
-      "statusCode": 200
-    },
-    {
-      "source": "/2024/build-tauri/(.*)",
-      "destination": "/2024/build-tauri/index.html",
-      "statusCode": 200
-    },
-    {
       "source": "/",
-      "destination": "https://elonehoo.me/talks"
+      "destination": "https://elonehoo.me/talks",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/2023/vue-devtools/:path*",
+      "destination": "/2023/vue-devtools/index.html"
+    },
+    {
+      "source": "/2023/project-copy/:path*",
+      "destination": "/2023/project-copy/index.html"
+    },
+    {
+      "source": "/2024/build-tauri/:path*",
+      "destination": "/2024/build-tauri/index.html"
+    },
+    {
+      "source": "/2026/agent-daily-work/:path*",
+      "destination": "/2026/agent-daily-work/index.html"
     }
   ]
 }
