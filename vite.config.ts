@@ -12,7 +12,7 @@ export default defineConfig({
   },
   slidev: {
     markdown: {
-      markdownItSetup(md) {
+      markdownSetup(md) {
         md.use(MarkdownItMagicLink, {
           linksMap: {
             'NuxtLabs': { link: 'https://nuxtlabs.com', imageUrl: 'https://nuxtlabs.com/icon.png' },
@@ -23,6 +23,8 @@ export default defineConfig({
             'Elk': 'https://github.com/elk-zone/elk',
             'Type Challenges': 'https://github.com/type-challenges/type-challenges',
             'Vue': 'https://github.com/vuejs/core',
+            'Nora': 'https://github.com/nora-release/nora',
+            'Destyler Labs': 'https://github.com/destyler/destyler',
             'Nuxt': 'https://github.com/nuxt/nuxt',
             'Vite': 'https://github.com/vitejs/vite',
             'Shiki': 'https://github.com/shikijs/shiki',
@@ -41,6 +43,14 @@ export default defineConfig({
             'Vercel': { link: 'https://vercel.com', imageUrl: 'https://github.com/vercel.png' },
           },
         })
+
+        // Comark reads `{Name}` as a prop before the text rule. Magic link has to run first,
+        // or `{Vue}` becomes a boolean attribute and crashes when nothing precedes it.
+        const rules = md.inline.ruler.__rules__
+        const magic = rules.findIndex(rule => rule.name === 'magic-link')
+        const props = rules.findIndex(rule => rule.name === 'mdc_inline_props')
+        if (magic !== -1 && props !== -1 && magic > props)
+          rules.splice(props, 0, rules.splice(magic, 1)[0])
       },
     },
   },

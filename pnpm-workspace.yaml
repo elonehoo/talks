@@ -1,6 +1,12 @@
 shellEmulator: true
 
 trustPolicy: no-downgrade
+# @types/node@22 (via pptxgenjs) pins undici-types@~6.21.0. That release was
+# published by the Node.js undici maintainers without provenance, after earlier
+# 6.x releases had it. No 6.21.x build restores provenance.
+# https://github.com/nodejs/undici/issues/4666
+trustPolicyExclude:
+  - undici-types@6.21.0
 
 verifyDepsBeforeRun: false
 

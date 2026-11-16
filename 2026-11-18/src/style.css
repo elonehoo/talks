@@ -1,0 +1,95 @@
+@font-face {
+  font-family: 'Playwrite IT Moderna';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/playwrite-it-moderna.ttf') format('truetype');
+}
+
+:root {
+  --talk-theme-color: #d46e47;
+  --talk-theme-color-soft: rgb(212 110 71 / 16%);
+}
+
+h6 {
+  text-transform: initial !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+}
+
+.dark #slide-content {
+  background:
+    radial-gradient(circle at 20% 15%, var(--talk-theme-color-soft), transparent 28%),
+    radial-gradient(circle at 82% 70%, rgb(212 110 71 / 10%), transparent 24%), #05070d !important;
+}
+
+.slidev-vclick-target {
+  transition: opacity 400ms ease;
+}
+
+.slidev-vclick-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.slidev-layout.cover h1 {
+  color: var(--talk-theme-color);
+}
+
+.slidev-page-1 .slidev-layout.cover .my-auto {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.slidev-layout.yak-title h1 {
+  color: white;
+}
+
+.slidev-layout.yak-title .slidev-vclick-target {
+  transition:
+    opacity 500ms ease,
+    filter 200ms ease;
+}
+
+.slidev-layout.yak-title .slidev-vclick-hidden {
+  filter: blur(3px);
+}
+
+iframe {
+  background: black;
+}
+
+.markdown-magic-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transform: translateY(5px);
+  line-height: 100%;
+  color: #000b;
+  border: 0 !important;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.25rem;
+  margin-inline: -0.125rem;
+  font-weight: 400;
+  transition: background 200ms ease;
+}
+
+.dark .markdown-magic-link {
+  color: #fffc;
+}
+
+.markdown-magic-link:hover {
+  background: #8883;
+}
+
+.markdown-magic-link-image {
+  display: inline-block;
+  height: 1.2em;
+  width: 1.2em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 2px;
+}

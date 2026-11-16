@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "slidev",
+    "build": "slidev build --base /2026/yak-shaving/ --out ../../dist/2026/yak-shaving",
+    "export": "slidev export --per-slide --output ../2026-11-18-yak-shaving.pdf"
+  }
+}

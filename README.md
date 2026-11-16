@@ -14,3 +14,4 @@ Slides &amp; code for my talks
 ## 2026
 
 - `zh` [如何让 Agent 融入我们的日常工作](./2026-05-12) - 工作分享
+- `zh` [Yak Shaving](./2026-11-18) - 工作分享

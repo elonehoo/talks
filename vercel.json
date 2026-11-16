@@ -26,6 +26,10 @@
     {
       "source": "/2026/agent-daily-work/:path*",
       "destination": "/2026/agent-daily-work/index.html"
+    },
+    {
+      "source": "/2026/yak-shaving/:path*",
+      "destination": "/2026/yak-shaving/index.html"
     }
   ]
 }
